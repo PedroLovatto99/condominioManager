@@ -51,11 +51,9 @@ export default function BlocoPagina() {
     }
   }, [blocoId])
 
-  // Se o id da URL mudou, os dados guardados ainda são do bloco anterior
   const atual = dados?.bloco.id === blocoId ? dados : null
   const bloco = atual?.bloco
 
-  // Na página de um bloco, o fundo inteiro assume a cor dele
   useEffect(() => {
     if (!bloco) return
     document.body.style.backgroundColor = corDoBloco(bloco.numero)
@@ -105,7 +103,6 @@ export default function BlocoPagina() {
           </thead>
           <tbody>
             {apartamentos.map((apartamento) => {
-              // Um apartamento pode ter mais de um residente: cada coluna empilha um item por residente
               const moradores = (atual?.residentes ?? []).filter(
                 (residente) => residente.apartamento.id === apartamento.id,
               )

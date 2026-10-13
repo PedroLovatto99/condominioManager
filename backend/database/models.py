@@ -24,7 +24,6 @@ class Usuario(Base):
     admin = Column("admin", Boolean, default=False)
 
 
-
 class Bloco(Base):
     __tablename__ = "blocos"
 

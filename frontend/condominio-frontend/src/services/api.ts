@@ -1,7 +1,6 @@
 const TOKEN_KEY = 'token'
 const EMAIL_KEY = 'email'
 
-// O Vite (em desenvolvimento) repassa /api/... para a FastAPI, então não precisa de CORS.
 const API = '/api'
 
 export function getToken(): string | null {
@@ -25,7 +24,7 @@ export function limparSessao() {
     localStorage.removeItem(TOKEN_KEY)
     localStorage.removeItem(EMAIL_KEY)
   } catch {
-    // sem localStorage (modo privado, por exemplo): não há o que limpar
+    return
   }
 }
 
@@ -34,7 +33,7 @@ function salvarSessao(token: string, email: string) {
     localStorage.setItem(TOKEN_KEY, token)
     localStorage.setItem(EMAIL_KEY, email)
   } catch {
-    // sem localStorage: o login funciona, mas não persiste
+    return
   }
 }
 

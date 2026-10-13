@@ -9,7 +9,6 @@ export default function Login() {
   const [erro, setErro] = useState<string | null>(null)
   const [enviando, setEnviando] = useState(false)
 
-  // Já logado: vai direto para a lista de blocos
   if (getToken()) {
     return <Navigate to="/" replace />
   }

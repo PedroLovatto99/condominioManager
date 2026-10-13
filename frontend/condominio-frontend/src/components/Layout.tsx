@@ -8,7 +8,6 @@ export default function Layout() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
-  // Na tela de login o cabeçalho não mostra usuário nem botão de sair
   const logado = pathname !== '/login'
 
   function sair() {

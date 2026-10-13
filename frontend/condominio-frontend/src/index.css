@@ -31,8 +31,6 @@ body::before {
   pointer-events: none;
 }
 
-/* ---------- Cabeçalho e rodapé ---------- */
-
 header {
   background-color: #f0f0f0;
   padding: 20px;
@@ -114,8 +112,6 @@ footer p {
   width: 220px;
 }
 
-/* ---------- Conteúdo ---------- */
-
 main {
   padding: 5px;
   text-align: center;
@@ -155,8 +151,6 @@ h2.titulo-pagina {
   color: red;
   font-weight: bold;
 }
-
-/* ---------- Lista de blocos ---------- */
 
 .bloco {
   display: flex;
@@ -200,8 +194,6 @@ h2.titulo-pagina {
     -1px  1px 0 #000,
      1px  1px 0 #000;
 }
-
-/* ---------- Página de um bloco ---------- */
 
 .sticky-header {
   position: sticky;
@@ -311,8 +303,6 @@ h2.titulo-pagina {
   color: #2d3436;
 }
 
-/* ---------- Login ---------- */
-
 .login-container {
   width: 300px;
   margin: 50px auto;
@@ -384,8 +374,6 @@ h2.titulo-pagina {
   margin-top: 10px;
   font-weight: bold;
 }
-
-/* ---------- Mobile ---------- */
 
 @media (max-width: 768px) {
   * {
