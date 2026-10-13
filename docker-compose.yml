@@ -1,27 +1,24 @@
-# Subir com: docker compose --env-file backend/.env up -d --build
-# (o --env-file é necessário para o ${PG_USERNAME} / ${PG_PASSWORD} abaixo)
 
 services:
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: ${PG_USERNAME}
-      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_USER: ${PG_USERNAME:?defina no .env da raiz}
+      POSTGRES_PASSWORD: ${PG_PASSWORD:?defina no .env da raiz}
       POSTGRES_DB: condominio
     ports:
-      # 5432 e 5433 já estão ocupadas pelos PostgreSQL instalados no Windows
       - "5434:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${PG_USERNAME} -d condominio"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d condominio"]
       interval: 5s
       timeout: 5s
       retries: 10
 
   api:
     build: ./backend
-    env_file: ./backend/.env
+    env_file: ./.env
     environment:
       PG_HOST: db
       PG_PORT: 5432
